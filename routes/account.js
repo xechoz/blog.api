@@ -33,12 +33,9 @@ router.post('/login', (req, res) => {
         if (error) {
             res.json(ERROR.setMsg(error));
         } else {
-            log.d('password: ' + JSON.stringify(password));
-
             const msgContent = userName + '#' + timeStamp;
             const crypto = require('crypto');
             const hmac = crypto.createHmac('sha512', password);
-            log.d('msgContent: ' + msgContent);
             hmac.update(msgContent);
             const digest = hmac.digest('hex');
             const isMatched = sign == digest;
