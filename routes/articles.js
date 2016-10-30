@@ -63,7 +63,7 @@ router.post('/', (req, res, next) => {
 router.post('/:id', (req, res) => {
   log.d(req.params);
   log.d(req.body);
-  
+
   const update = req.body;
   const id = req.params.id;
   const options = {
