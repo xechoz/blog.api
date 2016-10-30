@@ -1,0 +1,3 @@
+[submodule "client/blog.h5"]
+	path = client/blog.h5
+	url = git@github.com:zheng1733/blog.h5.git
