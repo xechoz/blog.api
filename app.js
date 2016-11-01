@@ -7,10 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
-
-let api = {
+const api = {
     index: require('./routes/index'),
     users: require('./routes/users'),
     articles: require('./routes/articles'),
@@ -36,7 +33,9 @@ app.use(require('node-sass-middleware')({
   indentedSyntax: true,
   sourceMap: true
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client'))); // h5 client
 
 // app.use('/', routes);
 // app.use('/users', users);
