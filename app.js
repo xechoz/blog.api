@@ -40,6 +40,13 @@ app.use(express.static(path.join(__dirname, 'client'))); // h5 client
 // app.use('/', routes);
 // app.use('/users', users);
 
+app.all('*', function(req, res, next) {
+
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 // all routes come here
 app.use('/', api.index);
 app.use('/users', api.users);

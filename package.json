@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "DEBUG=* nodemon ./bin/www",
-    "start-mon": "DEBUG=*  nodemon ./bin/www --exec babel-node --presets es2015,stage-2"
+    "dev": "DEBUG=*  nodemon ./bin/www --exec babel-node --presets es2015,stage-2"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

@@ -9,7 +9,7 @@
 
 class ResponseModel {
   constructor(code, msg, content) {
-    this.code = code;
+    this.code = code || ResponseModel.OK;
     this.msg = msg;
     this.content = content;
   }
