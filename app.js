@@ -35,7 +35,7 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'client'))); // h5 client
+app.use(express.static(path.join(__dirname, 'client/blog.h5'))); // h5 client
 
 // app.use('/', routes);
 // app.use('/users', users);

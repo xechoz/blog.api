@@ -8,7 +8,7 @@ const path = require('path');
 router.get('/', function(req, res, next) {
   // res.render('index', { title: 'Express' });
 
-  res.sendFile(path.join(__dirname, '../client/blog.h5/src/index.html'));
+  res.sendFile(path.join(__dirname, '../client/blog.h5/index.html'));
 });
 
 module.exports = router;
