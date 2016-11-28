@@ -16,7 +16,8 @@ const userSchema = new Schema({
   deviceInfo: [{type: Schema.Types.Mixed}],
   articles: [Schema.Types.ObjectId],
   extra: Schema.Types.Mixed,
-  tech: [{type: String, index: true}]
+  tech: [{type: String, index: true}],
+  password: {type: String, trim: true, required: true}
 });
 
 const user = mongoose.model('user', userSchema);
