@@ -2,7 +2,10 @@
 
 const log = require('../common/log');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/dev_api');
+const dbPath= 'mongodb://localhost/' + (process.env.NODE_ENV == 'production' ? 'app_api': 'dev_api');
+mongoose.connect(dbPath);
+
+log.d('db path: ' + dbPath);
 
 const db = mongoose.connection;
 db.on('error', (error) => {

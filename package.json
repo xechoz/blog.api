@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "DEBUG=* nodemon ./bin/www",
+    "start": "NODE_ENV=production nodemon ./bin/www",
     "dev": "DEBUG=*  nodemon ./bin/www --exec babel-node --presets es2015,stage-0"
   },
   "dependencies": {
