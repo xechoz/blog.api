@@ -1,0 +1,3 @@
+{
+    "ignore": ["*.test.js", "node_modules/*", "*/dist/*"]
+}

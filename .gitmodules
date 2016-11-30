@@ -1,3 +1,6 @@
 [submodule "client/blog.h5"]
 	path = client/blog.h5
 	url = git@github.com:xechoz/blog.h5.git
+[submodule "docs/blog"]
+	path = docs/blog
+	url = git@github.com:xechoz/blog.git
