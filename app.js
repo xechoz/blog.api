@@ -6,6 +6,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+const Log = require('./common/log');
+
+Log.i('app init begin');
 
 const api = {
     index: require('./routes/index'),
@@ -59,6 +62,8 @@ app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
+
+  Log.e(err);
 });
 
 // error handlers
@@ -83,8 +88,11 @@ app.use(function(err, req, res, next) {
     message: err.message,
     error: {}
   });
+
+  Log.e(JSON.stringify(req), JSON.stringify(res));
 });
 
 require('./model');
 
+Log.i('app init finished');
 module.exports = app;

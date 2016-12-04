@@ -59,8 +59,11 @@ router.get('/', function (req, res, next) {
         let articles = data;
 
         res.json(new Result(Result.OK, req.params, articles));
+        log.i(req, 'success');
       } else {
         res.json(new Result(Result.FAIL, error));
+
+        log.e(res);
       }
     });
 });
@@ -75,6 +78,7 @@ router.get('/:id', function (req, res, next) {
         res.json(new Result(Result.OK, req.params, item));
       } else {
         res.json(ERROR.setMsg(error));
+        log.e(res);
       }
     });
 });
