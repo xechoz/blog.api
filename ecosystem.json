@@ -5,6 +5,7 @@
     "script"      : "./bin/www",
     "args"        : [],
     "watch"       : true,
+    "cwd": "./",
     "node_args"   : "--harmony",
     "merge_logs"  : true,
     "env": {
