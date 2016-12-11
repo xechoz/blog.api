@@ -1,0 +1,26 @@
+{
+  "apps" : [{
+    // Application #1
+    "name"        : "blog-api",
+    "script"      : "./bin/www",
+    "args"        : [],
+    "watch"       : true,
+    "node_args"   : "--harmony",
+    "merge_logs"  : true,
+    "env": {
+      "NODE_ENV": "production",
+      "AWESOME_SERVICE_API_TOKEN": "xxx"
+    },
+    "env_production" : {
+       "NODE_ENV": "production"
+    },
+    "env_staging" : {
+       "NODE_ENV" : "staging",
+       "TEST"     : true
+    },
+    "env_development": {
+        "NODE_ENV" : "development",
+       "TEST"     : true
+    }
+  }]
+}
