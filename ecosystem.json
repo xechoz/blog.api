@@ -2,25 +2,27 @@
   "apps" : [{
     // Application #1
     "name"        : "blog-api",
-    "script"      : "./bin/www",
+    "script"      : "bin/www",
     "args"        : [],
     "watch"       : true,
-    "cwd": "./",
     "node_args"   : "--harmony",
     "merge_logs"  : true,
+    "cwd"         : "./",
+    "instances": 0,
+    "ignore_watch" : ["[\\/\\\\]\\./", "node_modules"],
+    "exec_interpreter" : "node",
+    "exec_mode"        : "cluster",
     "env": {
-      "NODE_ENV": "production",
-      "AWESOME_SERVICE_API_TOKEN": "xxx"
+      "NODE_ENV": "production"
     },
     "env_production" : {
        "NODE_ENV": "production"
     },
+    "env_development" : {
+       "NODE_ENV": "development"
+    },
     "env_staging" : {
        "NODE_ENV" : "staging",
-       "TEST"     : true
-    },
-    "env_development": {
-        "NODE_ENV" : "development",
        "TEST"     : true
     }
   }]
