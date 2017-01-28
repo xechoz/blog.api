@@ -1,5 +1,7 @@
 'use strict';
 
+import summary from './articles/summary';
+
 const express = require('express');
 const router = express.Router();
 const log = require('../common/log');
@@ -20,50 +22,30 @@ router.all('*', function (req, res, next) {
   next();
 });
 
-let items = [
-    {   
-        id: '1',
-        title: 'one',
-        content: 'one content',
-        author: {
-            name: 'xechoz',
-            avatar: '',
-            tech: [
-                'android',
-                'java'
-            ]
-        },
-        tags: [
-            'android',
-            'java'
-        ],
-        cover: [
-            '/assets/images/cover.jpeg'
-        ],
-        like: 12,
-        updateAt: 1478353838494,
-        isLike: true,
-        isBookmarked: true
-    }];
-
-/* GET home page. */
 router.get('/', function (req, res, next) {
-  console.log(req.params);
+  const onlySummary = req.query.onlySummary || false;
+
+  log.d(`onlySummary ${onlySummary}, request ${JSON.stringify(req.query)}`);
 
   Article.find()
     .limit(PAGE_SIZE)
     .sort('creatAt')
     .exec((error, data) => {
       if (!error) {
-        log.d(data);
-        let articles = data;
+        let articles;
 
-        res.json(new Result(Result.OK, req.params, articles));
-        log.i(req, 'success');
+        if (onlySummary) {
+          articles = data.map(item => {
+            item.content = summary.toSummary(item.content);
+            return item;
+          });
+        } else {
+          articles = data;
+        }
+
+        res.json(new Result(Result.OK, req.query, articles));
       } else {
         res.json(new Result(Result.FAIL, error));
-
-        log.e(res);
       }
     });
 });
