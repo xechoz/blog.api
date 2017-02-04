@@ -34,13 +34,16 @@ router.get('/', function (req, res, next) {
       if (!error) {
         let articles;
 
-        if (onlySummary) {
+        if (onlySummary == true || onlySummary == 1 || onlySummary.toLowerCase() == 'true') {
           articles = data.map(item => {
             item.content = summary.toSummary(item.content);
             return item;
           });
+
+          log.d('onlySummary true');
         } else {
           articles = data;
+          log.d('onlySummary false');
         }
 
         res.json(new Result(Result.OK, req.query, articles));
