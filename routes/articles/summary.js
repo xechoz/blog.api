@@ -1,6 +1,6 @@
 'use strict';
 
-import Log from '../../common/log.js';
+const Log = require('../../common/log.js');
 
 /**
  * 1. 获取主标题，副标题
@@ -50,4 +50,4 @@ const summary = {
     }
 };
 
-export default summary;
+module.exports = summary;
