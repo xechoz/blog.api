@@ -1,7 +1,6 @@
 'use strict';
 
-import summary from './articles/summary';
-
+const summary = require('./articles/summary');
 const express = require('express');
 const router = express.Router();
 const log = require('../common/log');
