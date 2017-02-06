@@ -11,7 +11,7 @@
     "instances": 0,
     "ignore_watch" : ["[\\/\\\\]\\./", "node_modules"],
     "exec_interpreter" : "node",
-    "exec_mode"        : "cluster",
+    "exec_mode"        : "fork",
     "env": {
       "NODE_ENV": "production"
     },
