@@ -28,7 +28,9 @@ router.get('/', function (req, res, next) {
 
   Article.find()
     .limit(PAGE_SIZE)
-    .sort('creatAt')
+    .sort({
+      createdAt: -1
+    })
     .exec((error, data) => {
       if (!error) {
         let articles;
