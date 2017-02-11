@@ -1,3 +1,6 @@
 {
-    "ignore": ["*.test.js", "node_modules/*", "*/dist/*", "client/*"]
+    "ignore": [
+        "*.test.js", "node_modules/*", "*/dist/*", "client/*",
+        "log/"
+    ]
 }
