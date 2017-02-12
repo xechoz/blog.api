@@ -90,11 +90,26 @@ HMAC(SHA512, PASSWORD)
 .toHex()
 ```
 
-resonse json 
-```json
+resonse json: User JSON
+```javascript
+{
+  email: {type: String, trim: true},
+  name: {type: String, trim: true, index: true},
+  tel: {type: String, trim: true},
+  firstName: {type: String, trim: true},
+  lastName: {type: String, trim: true},
+  avatar: {type: String, trim: true},
+  accessToken: {type: String, trim: true, index: true},
+  city: {type: String, trim: true},
+  province: String,
+  deviceInfo: [{type: Schema.Types.Mixed}],
+  articles: [Schema.Types.ObjectId],
+  extra: Schema.Types.Mixed,
+  tech: [{type: String, index: true}],
+  password: {type: String, trim: true, required: true}
+}
 ```
 
 # 参考 
 
 1. [Wikipedia- List of HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
-2. []()
