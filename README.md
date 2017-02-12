@@ -30,9 +30,9 @@ base url : **`https://api.xechoz.xyz`**
 
 ```json
 {
-    code: "int"， 
-    content: "最终数据，可能是JSON, 也可能是其他"， 
-    msg: "string, 结果说明"
+    "code": "int",
+    "content": "最终数据，可能是JSON, 也可能是其他",
+    "msg": "string, 结果说明"
 }
 ```
 
@@ -41,7 +41,7 @@ base url : **`https://api.xechoz.xyz`**
 状态码设计参考 [HTTP STATUS CODE](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)
 
 |值|说明|备注|
-|----|----|--|
+|----|----|----|
 |1xx-5xx|HTTP 状态码|[HTTP STATUS CODE](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)|
 |11xx|Informational|Request received, continuing process.|
 |12xx|Success|200预期结果,其他参考 HTTP status code 定义及相应接口定义|
@@ -76,9 +76,9 @@ curl -X GET $api/articles?onlySummary=true
 Request json：
 ```json
 {
-    user_name: "string, user account name, may be email"
-    time_stamp: "long, unix time stamp",
-    sign: "secret sign by user password"
+    "user_name": "string, user account name, may be email",
+    "time_stamp": "long, unix time stamp",
+    "sign": "secret sign by user password"
 }
 ```
 
