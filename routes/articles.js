@@ -22,7 +22,7 @@ router.all('*', function (req, res, next) {
 });
 
 router.get('/', function (req, res, next) {
-  const onlySummary = req.query.onlySummary || false;
+  const onlySummary = req.query.onlySummary || 1;
 
   log.d(`onlySummary ${onlySummary}, request ${JSON.stringify(req.query)}`);
 
@@ -35,7 +35,7 @@ router.get('/', function (req, res, next) {
       if (!error) {
         let articles;
 
-        if (onlySummary == true || onlySummary == 1 || onlySummary.toLowerCase() == 'true') {
+        if (onlySummary == 1 || onlySummary == true) {
           articles = data.map(item => {
             item.content = summary.toSummary(item.content);
             return item;
@@ -98,16 +98,32 @@ router.post('/:id', (req, res) => {
     maxTimeMS: TIME_OUT
   };
 
-  Article.findByIdAndUpdate(id, update, options, error => {
+  // Article.findByIdAndUpdate(id, update, options, error => {
+  //   if (error) {
+  //     res.json(ERROR.setMsg(error));
+  //   } else {
+  //     res.json(new Result(Result.OK, req.body, req.params));
+  //   }
+  // });
+
+  updateById(id, update, options, req, res);
+});
+
+router.delete('/:id', (req, res) => {
+
+});
+
+function updateById(id, update, options, req, res) {
+  Article.findByIdAndUpdate(id, {
+    $set: update
+  }, options, error => {
     if (error) {
       res.json(ERROR.setMsg(error));
     } else {
       res.json(new Result(Result.OK, req.body, req.params));
     }
   });
-});
+}
 
-router.delete('/:id', (req, res) => {
 
-});
 module.exports = router;
