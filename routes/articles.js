@@ -14,8 +14,13 @@ const TIME_OUT = 15*1000; // db action time out
 router.all('*', function (req, res, next) {
   // body...
   
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	if (!res.header('Access-Control-Allow-Origin')) {   
+	  res.header('Access-Control-Allow-Origin', '*');
+	}
+
+	if (!res.header('Access-Control-Allow-Headers')) {
+	  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	}
 
   // res.header('Content-Type', 'application/json');
   next();

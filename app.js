@@ -45,10 +45,15 @@ app.use(express.static(path.join(__dirname, 'client/blog.h5/node_modules')));
 // app.use('/users', users);
 
 app.all('*', function(req, res, next) {
+  if (!res.header('Accdess-Control-Allow-Origin')) {
+  	res.header('Access-Control-Allow-Origin', '*');
+	}
+	
+	if (!res.header('Access-Control-Allow-Headers')) { 
+	  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  }
 
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
+	next();
 });
 
 // all routes come here
